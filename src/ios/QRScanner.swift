@@ -151,7 +151,20 @@ class QRScanner : CDVPlugin, AVCaptureMetadataOutputObjectsDelegate {
                 metaOutput = AVCaptureMetadataOutput()
                 captureSession!.addOutput(metaOutput)
                 metaOutput!.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                metaOutput!.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+                metaOutput!.metadataObjectTypes = [
+                                    AVMetadataObjectTypeQRCode, 
+                                    AVMetadataObjectTypeAztecCode, 
+                                    AVMetadataObjectTypeCode128Code, 
+                                    AVMetadataObjectTypeCode39Code, 
+                                    AVMetadataObjectTypeCode39Mod43Code, 
+                                    AVMetadataObjectTypeCode93Code, 
+                                    AVMetadataObjectTypeDataMatrixCode
+                                    AVMetadataObjectTypeEAN8Code, 
+                                    AVMetadataObjectTypeEAN13Code, 
+                                    AVMetadataObjectTypeITF14Code, 
+                                    AVMetadataObjectTypePDF417Code, 
+                                    AVMetadataObjectTypeUPCECode, 
+                                    ]
                 captureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 cameraView.addPreviewLayer(captureVideoPreviewLayer)
                 captureSession!.startRunning()
